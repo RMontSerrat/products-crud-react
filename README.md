@@ -1,13 +1,13 @@
 # Products React Example
 
 ## About
-This is a product management application built using React. It demonstrates a basic flow for managing products, featuring a modern user interface and robust state management.
+This is a product listing application built using React. It demonstrates a basic flow for managing product listings, featuring a modern user interface and robust state management.
 
 Check out the live demo here: [Products React Example Demo](https://rmontserrat.github.io/products-crud-react/).
 
 ## Key Features
 - **Products Management:** Create, view, and manage products.
-- **User Interface:** Modern and responsive UI using MUI and Emotion.
+- **User Interface:** Modern and responsive UI using MUI and Tailwind CSS.
 - **State Management:** State management with Recoil for a more efficient and scalable application.
 - **Date Handling:** Utilizing dayJs for date manipulation.
 - **Validation:** Form validation with zod.
@@ -16,9 +16,8 @@ Check out the live demo here: [Products React Example Demo](https://rmontserrat.
 - **React:** A JavaScript library for building user interfaces.
 - **Recoil:** A state management library for React.
 - **MUI UI:** A popular React UI framework with a set of components.
-- **Emotion:** A library designed for writing css styles with JavaScript.
+- **Tailwind CSS:** A utility-first CSS framework for rapid UI development.
 - **Vite:** A frontend build tool that significantly improves the frontend development experience.
-- **dayJs:** A minimalist JavaScript library that parses, validates, manipulates, and displays dates and times.
 - **Prettier:** An opinionated code formatter.
 - **ESLint:** A tool for identifying and reporting on patterns found in ECMAScript/JavaScript code.
 - **Zod:** A TypeScript-first schema declaration and validation library.
@@ -63,8 +62,7 @@ To run tests, execute `npm test` or `yarn test`. This will run Jest tests in wat
 ## Demo
 Check out the live demo here: [Products React Example Demo](https://rmontserrat.github.io/products-crud-react/).
 
-This demo provides a hands-on opportunity to explore the functionality and user interface of the product management system. Feel free to interact with the features to see how the
-
+This demo provides a hands-on opportunity to explore the functionality and user interface of the product listing system. Feel free to interact with the features to see how they work.
 
 ## Contributing
 Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
