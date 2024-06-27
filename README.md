@@ -1,9 +1,9 @@
-# Products React Example
+# Products Crud React
 
 ## About
 This is a product listing application built using React. It demonstrates a basic flow for managing product listings, featuring a modern user interface and robust state management.
 
-Check out the live demo here: [Products React Example Demo](https://rmontserrat.github.io/products-crud-react/).
+Check out the live demo here: [Products Crud React Demo](https://rmontserrat.github.io/products-crud-react/).
 
 ## Key Features
 - **Products Management:** Create, view, and manage products.
@@ -60,7 +60,7 @@ After building, you can start the production server by running `npm start` or `y
 To run tests, execute `npm test` or `yarn test`. This will run Jest tests in watch mode.
 
 ## Demo
-Check out the live demo here: [Products React Example Demo](https://rmontserrat.github.io/products-crud-react/).
+Check out the live demo here: [Products Crud React Demo](https://rmontserrat.github.io/products-crud-react/).
 
 This demo provides a hands-on opportunity to explore the functionality and user interface of the product listing system. Feel free to interact with the features to see how they work.
 
