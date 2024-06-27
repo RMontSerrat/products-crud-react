@@ -21,6 +21,7 @@ Check out the live demo here: [Products React Example Demo](https://rmontserrat.
 - **ESLint:** A tool for identifying and reporting on patterns found in ECMAScript/JavaScript code.
 - **Zod:** A TypeScript-first schema declaration and validation library.
 - **React Testing Library:** A very light-weight solution for testing React components.
+- **Husky:** A tool for managing Git hooks.
 
 ## Getting Started
 
