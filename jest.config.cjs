@@ -4,9 +4,7 @@ module.exports = {
     // Transformar arquivos `.ts` ou `.tsx` usando `babel-jest`
     "^.+\\.(ts|tsx)$": "babel-jest",
   },
-  snapshotSerializers: [
-    "@emotion/jest/serializer" /* if needed other snapshotSerializers should go here */,
-  ],
+  moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx'],
   moduleNameMapper: {
     // Mapear importações de arquivos estáticos e CSS Modules
     "\\.(css|less|scss|sass)$": "identity-obj-proxy",
