@@ -28,7 +28,7 @@ describe("ProductList", () => {
         products={mockProducts}
         onEdit={mockOnEdit}
         onDelete={mockOnDelete}
-      />
+      />,
     );
 
     const nameColumn = screen.getByText("Nome");
@@ -50,7 +50,7 @@ describe("ProductList", () => {
         products={mockProducts}
         onEdit={mockOnEdit}
         onDelete={mockOnDelete}
-      />
+      />,
     );
 
     const product1Name = screen.getByText("Product 1");

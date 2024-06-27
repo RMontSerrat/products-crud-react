@@ -87,12 +87,14 @@ export function ProductForm({
                 error={!!error?.message}
                 helperText={error?.message}
                 InputProps={{
-                  startAdornment: <InputAdornment position="start">R$</InputAdornment>,
+                  startAdornment: (
+                    <InputAdornment position="start">R$</InputAdornment>
+                  ),
                 }}
                 onChange={(e) => {
                   const value = e.target.value;
                   const numericValue = parseInt(value.replace(/\D/g, ""), 10);
-                  field.onChange((formatBrazilianReal(numericValue / 100)));
+                  field.onChange(formatBrazilianReal(numericValue / 100));
                 }}
                 value={formatCurrency(field.value?.toString())}
               />

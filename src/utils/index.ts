@@ -34,7 +34,7 @@ export function formatBrazilianReal(value: string | number) {
 
 export function fromBrazilianReal(value: string): number {
   let numeroStr = value.replace("R$", "").trim();
-  
+
   numeroStr = numeroStr.replace(/\./g, "");
 
   numeroStr = numeroStr.replace(",", ".");
