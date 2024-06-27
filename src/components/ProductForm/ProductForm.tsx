@@ -1,8 +1,8 @@
 import { useProductForm } from "@/hooks/useProductForm";
-import { Button, TextField } from "@mui/material";
+import { Button, TextField, InputAdornment } from "@mui/material";
 import { IProduct } from "@/interfaces/product";
 import { Controller } from "react-hook-form";
-import { formatCurrency } from "@/utils";
+import { formatBrazilianReal, formatCurrency } from "@/utils";
 
 interface ProductFormProps {
   defaultValues?: IProduct;
@@ -51,6 +51,8 @@ export function ProductForm({
               label="Descrição"
               error={!!error?.message}
               helperText={error?.message}
+              multiline
+              rows={4}
             />
           )}
         />
@@ -84,10 +86,13 @@ export function ProductForm({
                 label="Preço"
                 error={!!error?.message}
                 helperText={error?.message}
+                InputProps={{
+                  startAdornment: <InputAdornment position="start">R$</InputAdornment>,
+                }}
                 onChange={(e) => {
                   const value = e.target.value;
                   const numericValue = parseInt(value.replace(/\D/g, ""), 10);
-                  field.onChange((numericValue / 100).toFixed(2));
+                  field.onChange((formatBrazilianReal(numericValue / 100)));
                 }}
                 value={formatCurrency(field.value?.toString())}
               />

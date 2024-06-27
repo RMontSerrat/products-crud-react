@@ -24,8 +24,8 @@ export const useProductForm = (options?: useProductFormProps) => {
   const { onSuccess } = options ?? {};
   const normalizedDefaultValues = options?.defaultValues
     ? {
-        ...options?.defaultValues,
-        price: formatBrazilianReal(options?.defaultValues?.price),
+        ...options.defaultValues,
+        price: formatBrazilianReal(options.defaultValues.price),
       }
     : {
         name: "",
@@ -46,6 +46,7 @@ export const useProductForm = (options?: useProductFormProps) => {
       ...data,
       price: fromBrazilianReal(data.price),
     };
+
     if (data.id) {
       editProduct(formattedData);
     } else {

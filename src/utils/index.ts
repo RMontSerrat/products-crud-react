@@ -13,13 +13,14 @@ export function formatCurrency(value: string | number) {
   }
 
   value = value.slice(0, -2) + "," + value.slice(-2);
+  value = value.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
   value = value.replace(/^0+/, "");
   if (value.startsWith(",")) {
     value = "0" + value;
   }
 
-  return `R$ ${value}`;
+  return value;
 }
 
 export function formatBrazilianReal(value: string | number) {
@@ -31,8 +32,11 @@ export function formatBrazilianReal(value: string | number) {
   return number;
 }
 
-export function fromBrazilianReal(value: string) {
+export function fromBrazilianReal(value: string): number {
   let numeroStr = value.replace("R$", "").trim();
+  
+  numeroStr = numeroStr.replace(/\./g, "");
+
   numeroStr = numeroStr.replace(",", ".");
   const numeroFloat = parseFloat(numeroStr);
 

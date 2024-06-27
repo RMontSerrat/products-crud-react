@@ -1,9 +1,9 @@
 import { Button } from "@mui/material";
 import { Header } from "@/components/Header";
 import { useProductsManagement } from "@/hooks/useProductsManagement";
-import { useProducts } from "./useProducts";
 import { ManageProductFormModal } from "@/components/ManageProductFormModal";
 import { ProductList } from "@/components/ProductList";
+import { useProducts } from "./useProducts";
 
 export function Products() {
   const { handleEdit, handleDelete, handleCreate } = useProducts();
