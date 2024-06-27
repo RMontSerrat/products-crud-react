@@ -17,12 +17,12 @@ export function useProducts() {
     (editingProductId: string) => {
       setHash(`product-details-${editingProductId}`);
     },
-    [openModal],
+    [openModal, setHash],
   );
 
   const handleCreate = useCallback(() => {
     setHash("product-details-new");
-  }, [openModal]);
+  }, [openModal, setHash]);
 
   const confirmDelete = useCallback(
     (productId: string) => {

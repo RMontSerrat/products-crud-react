@@ -23,7 +23,7 @@ export const useManageProductFormModal = () => {
       addToast("Produto editado com sucesso", { type: "success" });
     }
     closeModal();
-  }, [addToast, closeModal]);
+  }, [addToast, closeModal, isNew]);
 
   const isOpen = !!product || isNew;
 
