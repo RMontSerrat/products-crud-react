@@ -1,5 +1,5 @@
 import { generateUniqueId } from "@/utils";
-import { atom, useRecoilState } from "recoil";
+import { atom, useRecoilState, RecoilState } from "recoil";
 import { recoilPersist } from "recoil-persist";
 
 const { persistAtom } = recoilPersist();
@@ -12,7 +12,9 @@ export const createCRUDState = <T extends { id?: string }>(key: string) => {
   });
 };
 
-export const useCRUD = <T extends { id: string }>(crudState: any) => {
+export const useCRUD = <T extends { id?: string }>(
+  crudState: RecoilState<T[]>,
+) => {
   const [items, setItems] = useRecoilState<T[]>(crudState);
 
   const deleteItem = (itemId: string) => {

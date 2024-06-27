@@ -12,7 +12,6 @@ export const useProductsManagement = () => {
     addItem: addProduct,
   } = useCRUD(productsState);
 
-
   return {
     products,
     deleteProduct,

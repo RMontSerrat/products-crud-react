@@ -12,9 +12,9 @@ export const useManageProductFormModal = () => {
   const product = match ? getProduct(match[1]) : null;
   const defaultValues = product ?? undefined;
 
-  const closeModal = () => {
+  const closeModal = useCallback(() => {
     setHash("");
-  };
+  }, [setHash]);
 
   const handleSuccess = useCallback(() => {
     if (isNew) {

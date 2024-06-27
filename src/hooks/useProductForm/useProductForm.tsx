@@ -9,9 +9,7 @@ export const productSchema = z.object({
   id: z.string().optional(),
   name: z.string().min(1, { message: "Nome é obrigatório" }),
   description: z.string().min(1, { message: "Descrição é obrigatória" }),
-  quantity: z
-    .number()
-    .min(0, { message: "Quantidade é obrigatório" }),
+  quantity: z.number().min(0, { message: "Quantidade é obrigatório" }),
   price: z.string().min(1, { message: "Preço é obrigatório" }),
 });
 
@@ -30,13 +28,13 @@ export const useProductForm = (options?: useProductFormProps) => {
         price: formatBrazilianReal(options?.defaultValues?.price),
       }
     : {
-      name: "",
-      description: "",
-      quantity: 0,
-      price: "",
-    };
+        name: "",
+        description: "",
+        quantity: 0,
+        price: "",
+      };
 
-  const { control, handleSubmit, formState } = useForm<ProductFormInput>({
+  const { control, handleSubmit } = useForm<ProductFormInput>({
     resolver: zodResolver(productSchema),
     defaultValues: normalizedDefaultValues,
   });

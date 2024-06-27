@@ -9,7 +9,6 @@ export function useProducts() {
   const [, setHash] = useHash();
   const { addToast } = useToast();
   const { deleteProduct } = useProductsManagement();
-  const { openModal } = useModal();
   const { openModal: openModalDelete, closeModal: closeModalDelete } =
     useModal();
 
@@ -17,12 +16,12 @@ export function useProducts() {
     (editingProductId: string) => {
       setHash(`product-details-${editingProductId}`);
     },
-    [openModal, setHash],
+    [setHash],
   );
 
   const handleCreate = useCallback(() => {
     setHash("product-details-new");
-  }, [openModal, setHash]);
+  }, [setHash]);
 
   const confirmDelete = useCallback(
     (productId: string) => {
