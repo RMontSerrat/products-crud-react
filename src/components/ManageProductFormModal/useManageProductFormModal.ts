@@ -17,12 +17,16 @@ export const useManageProductFormModal = () => {
   }, [setHash]);
 
   const handleSuccess = useCallback(() => {
-    if (isNew) {
-      addToast("Produto criado com sucesso", { type: "success" });
-    } else {
-      addToast("Produto editado com sucesso", { type: "success" });
+    try {
+      if (isNew) {
+        addToast("Produto criado com sucesso", { type: "success" });
+      } else {
+        addToast("Produto editado com sucesso", { type: "success" });
+      }
+      closeModal();
+    } catch (error) {
+      addToast("Erro ao salvar produto", { type: "error" });
     }
-    closeModal();
   }, [addToast, closeModal, isNew]);
 
   const isOpen = !!product || isNew;

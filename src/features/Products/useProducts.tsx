@@ -25,10 +25,14 @@ export function useProducts() {
 
   const confirmDelete = useCallback(
     (productId: string) => {
-      if (productId) {
-        deleteProduct(productId);
-        addToast("Produto deletado com sucesso", { type: "success" });
-        closeModalDelete();
+      try {
+        if (productId) {
+          deleteProduct(productId);
+          addToast("Produto deletado com sucesso", { type: "success" });
+          closeModalDelete();
+        }
+      } catch (error) {
+        addToast("Erro ao deletar produto", { type: "error" });
       }
     },
     [addToast, closeModalDelete, deleteProduct],
