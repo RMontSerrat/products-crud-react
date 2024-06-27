@@ -33,7 +33,7 @@ describe("useProductForm", () => {
 
   test("should call addProduct when id is not provided", () => {
     const { result } = renderHook(() =>
-      useProductForm({ onSuccess: mockOnSuccess })
+      useProductForm({ onSuccess: mockOnSuccess }),
     );
     const { onSubmit } = result.current;
 
@@ -58,7 +58,10 @@ describe("useProductForm", () => {
 
   test("should call editProduct when id is provided", () => {
     const { result } = renderHook(() =>
-      useProductForm({ onSuccess: mockOnSuccess, defaultValues: mockDefaultValues })
+      useProductForm({
+        onSuccess: mockOnSuccess,
+        defaultValues: mockDefaultValues,
+      }),
     );
     const { onSubmit } = result.current;
 

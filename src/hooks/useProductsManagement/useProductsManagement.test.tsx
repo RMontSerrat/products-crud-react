@@ -1,4 +1,3 @@
-
 import { renderHook } from "@testing-library/react";
 import { act } from "@testing-library/react-hooks";
 import React from "react";
@@ -10,7 +9,6 @@ jest.mock("@/hooks/useModal", () => ({
     openModal: jest.fn(),
   }),
 }));
-
 
 const mockInitialState = [
   { id: "1", name: "Product 1", description: "", quantity: 0, price: 0 },
@@ -32,7 +30,12 @@ describe("useProductsManagement", () => {
     const { result } = renderHook(() => useProductsManagement(), { wrapper });
 
     act(() => {
-      result.current.addProduct({ name: "Product 3", description: "", quantity: 0, price: 0 });
+      result.current.addProduct({
+        name: "Product 3",
+        description: "",
+        quantity: 0,
+        price: 0,
+      });
     });
 
     expect(result.current.products.length).toEqual(3);
@@ -43,7 +46,13 @@ describe("useProductsManagement", () => {
     const { result } = renderHook(() => useProductsManagement(), { wrapper });
 
     act(() => {
-      result.current.editProduct({ id: "1", name: "Updated Product 1", description: "", quantity: 0, price: 0 });
+      result.current.editProduct({
+        id: "1",
+        name: "Updated Product 1",
+        description: "",
+        quantity: 0,
+        price: 0,
+      });
     });
 
     expect(result.current.products.length).toEqual(3);

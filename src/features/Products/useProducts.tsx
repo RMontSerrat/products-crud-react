@@ -6,7 +6,7 @@ import { useCallback } from "react";
 import { useHash } from "@/hooks/useHash";
 
 export function useProducts() {
-  const [_, setHash] = useHash();
+  const [, setHash] = useHash();
   const { addToast } = useToast();
   const { deleteProduct } = useProductsManagement();
   const { openModal } = useModal();
@@ -22,9 +22,7 @@ export function useProducts() {
 
   const handleCreate = useCallback(() => {
     setHash("product-details-new");
-  }, 
-    [openModal]
-  );
+  }, [openModal]);
 
   const confirmDelete = useCallback(
     (productId: string) => {

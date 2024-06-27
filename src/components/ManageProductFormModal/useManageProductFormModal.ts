@@ -6,15 +6,15 @@ import { useCallback } from "react";
 export const useManageProductFormModal = () => {
   const [hash, setHash] = useHash();
   const { addToast } = useToast();
-  const isNew = hash === '#product-details-new';
+  const isNew = hash === "#product-details-new";
   const match = (hash as string)?.match(/#product-details-(.+)/);
   const { getProduct } = useProductsManagement();
   const product = match ? getProduct(match[1]) : null;
   const defaultValues = product ?? undefined;
 
   const closeModal = () => {
-    setHash('');
-  }
+    setHash("");
+  };
 
   const handleSuccess = useCallback(() => {
     if (isNew) {
@@ -30,8 +30,8 @@ export const useManageProductFormModal = () => {
   return {
     isOpen,
     onClose: closeModal,
-    title: product ? 'Editar Produto' : 'Adicionar Produto',
+    title: product ? "Editar Produto" : "Adicionar Produto",
     defaultValues,
     handleSuccess,
-  }
-}
+  };
+};

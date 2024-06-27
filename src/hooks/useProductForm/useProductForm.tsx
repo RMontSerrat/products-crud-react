@@ -9,9 +9,10 @@ export const productSchema = z.object({
   id: z.string().optional(),
   name: z.string().min(1, { message: "Nome é obrigatório" }),
   description: z.string().min(1, { message: "Descrição é obrigatória" }),
-  quantity: z.number().min(1, { message: "Quantidade deve ser um número inteiro positivo" }),
-  price: z.string()
-    .min(1, { message: "Preço é obrigatório" })
+  quantity: z
+    .number()
+    .min(1, { message: "Quantidade deve ser um número inteiro positivo" }),
+  price: z.string().min(1, { message: "Preço é obrigatório" }),
 });
 
 export type ProductFormInput = z.infer<typeof productSchema>;
@@ -23,26 +24,27 @@ interface useProductFormProps {
 
 export const useProductForm = (options?: useProductFormProps) => {
   const { onSuccess } = options ?? {};
-  const normalizedDefaultValues = options?.defaultValues ? {
-    ...options?.defaultValues,
-    price: options?.defaultValues?.price
-      ? formatBrazilianReal(options?.defaultValues?.price)
-      : "",
-  } : {};
+  const normalizedDefaultValues = options?.defaultValues
+    ? {
+        ...options?.defaultValues,
+        price: options?.defaultValues?.price
+          ? formatBrazilianReal(options?.defaultValues?.price)
+          : "",
+      }
+    : {};
 
   const { control, handleSubmit } = useForm<ProductFormInput>({
     resolver: zodResolver(productSchema),
     defaultValues: normalizedDefaultValues,
   });
 
-  const { addProduct, editProduct } =
-    useProductsManagement();
+  const { addProduct, editProduct } = useProductsManagement();
 
   const onSubmit = (data: ProductFormInput) => {
     const formattedData = {
       ...data,
-      price: parseFloat(data.price.replace('R$ ', '').replace(',', '.')),
-    }
+      price: parseFloat(data.price.replace("R$ ", "").replace(",", ".")),
+    };
     if (data.id) {
       editProduct(formattedData);
     } else {

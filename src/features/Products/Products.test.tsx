@@ -1,5 +1,4 @@
 import { render, screen } from "@testing-library/react";
-import React from "react";
 import { RecoilRoot } from "recoil";
 import { ToastProvider } from "@/providers/ToastProvider";
 import { ModalProvider } from "@/providers/ModalProvider";
@@ -8,12 +7,12 @@ import { Products } from "./Products";
 test("renders Products component", () => {
   render(
     <RecoilRoot>
-        <ToastProvider>
-          <ModalProvider>
-            <Products />
-          </ModalProvider>
-        </ToastProvider>
-      </RecoilRoot>
+      <ToastProvider>
+        <ModalProvider>
+          <Products />
+        </ModalProvider>
+      </ToastProvider>
+    </RecoilRoot>,
   );
 
   const nameColumn = screen.getByText("Nome") as HTMLElement;

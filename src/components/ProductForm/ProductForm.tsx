@@ -10,14 +10,21 @@ interface ProductFormProps {
   onCancel: () => void;
 }
 
-export function ProductForm({ defaultValues, onSuccess, onCancel }: ProductFormProps) {
+export function ProductForm({
+  defaultValues,
+  onSuccess,
+  onCancel,
+}: ProductFormProps) {
   const { control, handleSubmit, onSubmit } = useProductForm({
     defaultValues,
     onSuccess,
   });
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-5 mt-5 items-center justify-center w-full">
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className="flex flex-col gap-5 mt-5 items-center justify-center w-full"
+    >
       <div className="flex flex-col gap-4 w-full">
         <Controller
           name="name"
@@ -59,7 +66,7 @@ export function ProductForm({ defaultValues, onSuccess, onCancel }: ProductFormP
                 label="Quantidade"
                 error={!!error?.message}
                 onChange={(e) => {
-                  const value = e.target.value.replace(/\D/g, '');
+                  const value = e.target.value.replace(/\D/g, "");
                   field.onChange(Number(value));
                 }}
                 helperText={error?.message}
@@ -79,7 +86,7 @@ export function ProductForm({ defaultValues, onSuccess, onCancel }: ProductFormP
                 helperText={error?.message}
                 onChange={(e) => {
                   const value = e.target.value;
-                  const numericValue = parseInt(value.replace(/\D/g, ''), 10);
+                  const numericValue = parseInt(value.replace(/\D/g, ""), 10);
                   field.onChange((numericValue / 100).toFixed(2));
                 }}
                 value={formatCurrency(field.value?.toString())}
@@ -88,10 +95,22 @@ export function ProductForm({ defaultValues, onSuccess, onCancel }: ProductFormP
           />
         </div>
         <div className="flex gap-2 mt-2 w-full">
-          <Button variant="outlined" color="primary" size="large" onClick={onCancel} className="w-1/2">
+          <Button
+            variant="outlined"
+            color="primary"
+            size="large"
+            onClick={onCancel}
+            className="w-1/2"
+          >
             Cancelar
           </Button>
-          <Button variant="contained" color="primary" type="submit" size="large" className="w-1/2">
+          <Button
+            variant="contained"
+            color="primary"
+            type="submit"
+            size="large"
+            className="w-1/2"
+          >
             Enviar
           </Button>
         </div>

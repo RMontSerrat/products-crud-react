@@ -1,5 +1,4 @@
 import { render, screen, fireEvent } from "@testing-library/react";
-import React from "react";
 import { RecoilRoot } from "recoil";
 import { ProductForm } from "./ProductForm";
 
@@ -7,7 +6,7 @@ test("renders ProductForm component", () => {
   render(
     <RecoilRoot>
       <ProductForm onCancel={() => {}} />
-    </RecoilRoot>
+    </RecoilRoot>,
   );
 
   const cancelButton = screen.getByText("Cancelar") as HTMLElement;
@@ -20,7 +19,7 @@ test("calls onCancel when cancel button is clicked", () => {
   render(
     <RecoilRoot>
       <ProductForm onCancel={onCancelMock} />
-    </RecoilRoot>
+    </RecoilRoot>,
   );
 
   const cancelButton = screen.getByText("Cancelar") as HTMLElement;

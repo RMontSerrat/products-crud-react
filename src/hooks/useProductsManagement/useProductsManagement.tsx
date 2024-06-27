@@ -38,7 +38,7 @@ export const useProductsManagement = () => {
 
   const getProduct = (productId: string) => {
     return products.find((product) => product.id === productId);
-  }
+  };
 
   return {
     products,

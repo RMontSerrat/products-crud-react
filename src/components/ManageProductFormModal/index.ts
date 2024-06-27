@@ -1,1 +1,1 @@
-export * from './ManageProductFormModal'
+export * from "./ManageProductFormModal";

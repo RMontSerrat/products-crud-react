@@ -14,7 +14,7 @@ function CloseButton({ onClose }: { onClose: () => void }) {
     <IconButton
       onClick={onClose}
       className="absolute top-2 right-2"
-      sx={{ position: 'absolute '}}
+      sx={{ position: "absolute " }}
     >
       <CloseIcon />
     </IconButton>

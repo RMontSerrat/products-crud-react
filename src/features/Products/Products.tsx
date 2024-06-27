@@ -60,7 +60,7 @@ export function Products() {
       ),
     },
   ];
-  
+
   return (
     <div className="max-w-screen-lg mx-auto text-center w-[calc(100%-4rem)]">
       <Header>Listagem de produtos</Header>
@@ -83,9 +83,7 @@ export function Products() {
               MuiTablePagination: {
                 labelRowsPerPage: "Registros por página",
                 labelDisplayedRows: ({ from, to, count }) =>
-                  `${from}-${to} de ${
-                    count !== -1 ? count : `mais de ${to}`
-                  }`,
+                  `${from}-${to} de ${count !== -1 ? count : `mais de ${to}`}`,
               },
             }}
             columns={columns}
