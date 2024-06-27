@@ -1,47 +1,35 @@
-import { IProduct } from "@/interfaces/product";
-import { generateUniqueId } from "@/utils";
-import { atom, useRecoilState } from "recoil";
-import { recoilPersist } from "recoil-persist";
+import { IProduct, IProductWithId } from "@/interfaces/product";
+import { createCRUDState, useCRUD } from "../useCrud";
 
-const { persistAtom } = recoilPersist();
-
-export const productsState = atom<IProduct[]>({
-  key: "productsState",
-  default: [],
-  effects_UNSTABLE: [persistAtom],
-});
+export const productsState = createCRUDState<IProduct>("productsState");
 
 export const useProductsManagement = () => {
-  const [products, setProducts] = useRecoilState<IProduct[]>(productsState);
+  const {
+    items,
+    deleteItem,
+    editItem,
+    getItem,
+    addItem,
+  } = useCRUD(productsState);
 
   const deleteProduct = (productId: string) => {
-    setProducts(products.filter((product) => product.id !== productId));
+    deleteItem(productId);
   };
 
   const addProduct = (data: IProduct) => {
-    const newProduct = {
-      id: generateUniqueId(),
-      ...data,
-    };
-    setProducts([...products, newProduct]);
+    addItem(data);
   };
 
-  const editProduct = (data: IProduct) => {
-    const newProducts = products.map((product) => {
-      if (product.id === data.id) {
-        return data;
-      }
-      return product;
-    });
-    setProducts(newProducts);
+  const editProduct = (data: IProductWithId) => {
+    editItem(data);
   };
 
   const getProduct = (productId: string) => {
-    return products.find((product) => product.id === productId);
+    return getItem(productId);
   };
 
   return {
-    products,
+    products: items,
     deleteProduct,
     editProduct,
     getProduct,

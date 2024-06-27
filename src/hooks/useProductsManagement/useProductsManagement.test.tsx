@@ -2,8 +2,7 @@ import { renderHook } from "@testing-library/react";
 import { act } from "@testing-library/react-hooks";
 import React from "react";
 import { RecoilRoot } from "recoil";
-import { useProductsManagement } from "./useProductsManagement";
-import { productsState } from "./useProductsManagement";
+import { useProductsManagement, productsState } from "./useProductsManagement";
 jest.mock("@/hooks/useModal", () => ({
   useModal: () => ({
     openModal: jest.fn(),
@@ -26,6 +25,10 @@ const wrapper = ({ children }: { children: React.ReactNode }) => (
 );
 
 describe("useProductsManagement", () => {
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
+
   test("should get a product correctly", () => {
     const { result } = renderHook(() => useProductsManagement(), { wrapper });
 
