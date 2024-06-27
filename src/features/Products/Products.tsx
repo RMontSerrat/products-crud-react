@@ -1,4 +1,4 @@
-import { Box, Button, IconButton, Card } from "@mui/material";
+import { Button, IconButton, Card } from "@mui/material";
 import { Header } from "@/components/Header";
 import { useProductsManagement } from "@/hooks/useProductsManagement";
 import { useProducts } from "./useProducts";
