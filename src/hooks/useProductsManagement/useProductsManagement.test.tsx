@@ -26,6 +26,14 @@ const wrapper = ({ children }: { children: React.ReactNode }) => (
 );
 
 describe("useProductsManagement", () => {
+  test("should get a product correctly", () => {
+    const { result } = renderHook(() => useProductsManagement(), { wrapper });
+
+    const product = result.current.getProduct("1");
+
+    expect(product?.name).toEqual("Product 1");
+  });
+
   test("should add a product correctly", () => {
     const { result } = renderHook(() => useProductsManagement(), { wrapper });
 

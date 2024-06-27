@@ -30,3 +30,10 @@ export function formatBrazilianReal(value: string | number) {
 
   return number;
 }
+
+export function fromBrazilianReal(value: string) {
+    let numeroStr = value.replace('R$', '').trim();
+    numeroStr = numeroStr.replace(',', '.');
+    
+    return parseFloat(numeroStr);;
+}

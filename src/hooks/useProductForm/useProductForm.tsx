@@ -1,6 +1,6 @@
 import { useProductsManagement } from "@/hooks/useProductsManagement";
 import { IProduct } from "@/interfaces/product";
-import { formatBrazilianReal } from "@/utils";
+import { formatBrazilianReal, fromBrazilianReal } from "@/utils";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -11,7 +11,7 @@ export const productSchema = z.object({
   description: z.string().min(1, { message: "Descrição é obrigatória" }),
   quantity: z
     .number()
-    .min(1, { message: "Quantidade deve ser um número inteiro positivo" }),
+    .min(0, { message: "Quantidade é obrigatório" }),
   price: z.string().min(1, { message: "Preço é obrigatório" }),
 });
 
@@ -27,13 +27,16 @@ export const useProductForm = (options?: useProductFormProps) => {
   const normalizedDefaultValues = options?.defaultValues
     ? {
         ...options?.defaultValues,
-        price: options?.defaultValues?.price
-          ? formatBrazilianReal(options?.defaultValues?.price)
-          : "",
+        price: formatBrazilianReal(options?.defaultValues?.price),
       }
-    : {};
+    : {
+      name: "",
+      description: "",
+      quantity: 0,
+      price: "",
+    };
 
-  const { control, handleSubmit } = useForm<ProductFormInput>({
+  const { control, handleSubmit, formState } = useForm<ProductFormInput>({
     resolver: zodResolver(productSchema),
     defaultValues: normalizedDefaultValues,
   });
@@ -43,7 +46,7 @@ export const useProductForm = (options?: useProductFormProps) => {
   const onSubmit = (data: ProductFormInput) => {
     const formattedData = {
       ...data,
-      price: parseFloat(data.price.replace("R$ ", "").replace(",", ".")),
+      price: fromBrazilianReal(data.price),
     };
     if (data.id) {
       editProduct(formattedData);

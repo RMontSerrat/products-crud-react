@@ -9,7 +9,6 @@ Check out the live demo here: [Products React Example Demo](https://rmontserrat.
 - **Products Management:** Create, view, and manage products.
 - **User Interface:** Modern and responsive UI using MUI and Tailwind CSS.
 - **State Management:** State management with Recoil for a more efficient and scalable application.
-- **Date Handling:** Utilizing dayJs for date manipulation.
 - **Validation:** Form validation with zod.
 
 ## Technologies Used
