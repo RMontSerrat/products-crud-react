@@ -1,7 +1,7 @@
 import { Products } from "@/features/Products";
 import { ModalProvider } from "@/providers/ModalProvider";
 import { ToastProvider } from "@/providers/ToastProvider";
-import { ThemeProvider } from "@emotion/react";
+import { ThemeProvider } from '@mui/material/styles';
 
 import { theme } from "@/styles/theme";
 import { RecoilRoot } from "recoil";
