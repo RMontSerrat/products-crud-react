@@ -94,7 +94,7 @@ export function ProductForm({
             )}
           />
         </div>
-        <div className="flex gap-2 mt-2 w-full">
+        <div className="flex gap-4 mt-4 w-full">
           <Button
             variant="outlined"
             color="primary"

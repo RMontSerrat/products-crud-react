@@ -64,13 +64,13 @@ export function Products() {
   return (
     <div className="max-w-screen-lg mx-auto text-center w-[calc(100%-4rem)]">
       <Header>Listagem de produtos</Header>
-      <Box display="flex" flexDirection="column">
-        <Box display="flex" justifyContent="flex-end" mt="25px" mb="10px">
-          <Button variant="contained" size="small" onClick={handleCreate}>
+      <div className="flex flex-col">
+        <div className="flex justify-end mt-6 mb-2.5">
+          <Button variant="contained" onClick={handleCreate}>
             Adicionar produto
           </Button>
-        </Box>
-      </Box>
+        </div>
+      </div>
       <Card className="w-full h-[75vh] relative flex flex-col items-center justify-center">
         <div className="h-full w-full">
           <DataGrid

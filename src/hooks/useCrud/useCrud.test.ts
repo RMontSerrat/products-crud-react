@@ -1,7 +1,6 @@
 import { useCRUD } from "./useCrud";
 import { useRecoilState } from "recoil";
 
-// Mock the generateId function to return a predictable value
 jest.mock("@/utils", () => ({
   generateUniqueId: jest.fn().mockReturnValue("mock-id"),
 }));
