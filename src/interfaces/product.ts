@@ -5,5 +5,3 @@ export interface IProduct {
   quantity: number;
   price: number;
 }
-
-export type IProductWithId = Required<Pick<IProduct, 'id'>> & Omit<IProduct, 'id'>;

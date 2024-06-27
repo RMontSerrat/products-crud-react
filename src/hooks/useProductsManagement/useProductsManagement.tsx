@@ -1,35 +1,20 @@
-import { IProduct, IProductWithId } from "@/interfaces/product";
-import { createCRUDState, useCRUD } from "../useCrud";
+import { IProduct } from "@/interfaces/product";
+import { createCRUDState, useCRUD } from "@/hooks/useCrud";
 
 export const productsState = createCRUDState<IProduct>("productsState");
 
 export const useProductsManagement = () => {
   const {
-    items,
-    deleteItem,
-    editItem,
-    getItem,
-    addItem,
+    items: products,
+    deleteItem: deleteProduct,
+    editItem: editProduct,
+    getItem: getProduct,
+    addItem: addProduct,
   } = useCRUD(productsState);
 
-  const deleteProduct = (productId: string) => {
-    deleteItem(productId);
-  };
-
-  const addProduct = (data: IProduct) => {
-    addItem(data);
-  };
-
-  const editProduct = (data: IProductWithId) => {
-    editItem(data);
-  };
-
-  const getProduct = (productId: string) => {
-    return getItem(productId);
-  };
 
   return {
-    products: items,
+    products,
     deleteProduct,
     editProduct,
     getProduct,

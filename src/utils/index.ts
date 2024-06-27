@@ -34,6 +34,8 @@ export function formatBrazilianReal(value: string | number) {
 export function fromBrazilianReal(value: string) {
     let numeroStr = value.replace('R$', '').trim();
     numeroStr = numeroStr.replace(',', '.');
+    // Converte a string em um número float
+    let numeroFloat = parseFloat(numeroStr);
     
-    return parseFloat(numeroStr);;
+    return numeroFloat;
 }
